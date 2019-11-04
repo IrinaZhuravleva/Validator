@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Validator</title>
+	<script src="validator.js"></script>
+
+	<style>
+		input {
+			display: block;
+		}
+	</style>
+	<link rel="stylesheet" href="validator.css">
+
+</head>
+<body>
+	<form id="myform">
+		<label for="email">email</label>
+		<input type="text" name="email" id="email">
+		<label for="phone">phone</label>
+		<input type="text" name="phone" id="phone">
+		<br>
+		<button>submit</button>
+		<button type="reset">reset</button>
+	</form>
+	<script> 
+		const valid = new Validator(
+		{
+			id:"myform",
+			// pattern: {
+			// 	phone: /^\+380\w{9}/
+			// },
+			method: {
+				'email': [
+					['notEmpty'],
+					['pattern', 'email'],
+				],
+				'phone': [
+					['notEmpty'],
+					['pattern', 'phone'],
+
+
+				]
+			}
+		});
+
+	</script>
+</body>
+</html>
+
+<!-- function descendingOrder(n){
+
+let strNum = String(n),
+  strNumArr = strNum.split(""),
+  strNumArrSorted = strNumArr.sort(function(a,b){
+  return a-b;
+});
+
+strNumArrSorted = strNumArrSorted.reverse();
+strNum = strNumArrSorted.join("");
+
+return parseInt(strNum);
+
+  //...
+}; 
+
+descendingOrder(2340986); -->
+
+<!-- function descendingOrder(n){
+  return parseInt(String(n).split('').sort().reverse().join(''))
+} -->
